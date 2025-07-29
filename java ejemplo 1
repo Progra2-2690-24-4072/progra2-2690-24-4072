@@ -1,0 +1,93 @@
+package computadora;
+
+public class Computadora {
+    public static void main(String[] args) {
+        
+        Teclado teclado = new Teclado("Negro", "DELL", "Membrana", 104);
+        Pantalla pantalla = new Pantalla();
+        Pc miComputadora = new Pc(teclado, pantalla);
+
+        miComputadora.encender("A");
+
+        miComputadora.encender("F1");
+    }
+}
+
+package computadora;
+
+public class Teclado {
+    private String color;
+    private String marca;
+    private String tipoEscritura;
+    private int tamaño;
+
+    // Constructor
+    public Teclado(String color, String marca, String tipoEscritura, int tamaño) {
+        if (tamaño <= 0) {
+            System.out.println("El tamaño debe ser mayor que cero.");
+            tamaño = 1; // Valor por defecto si el tamaño no es válido
+        }
+        this.color = color;
+        this.marca = marca;
+        this.tipoEscritura = tipoEscritura;
+        this.tamaño = tamaño;
+    }
+
+    // Método para simular que escribe
+    public void escribir(String texto) {
+        System.out.println("Teclado escribiendo: " + texto);
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getTipoEscritura() {
+        return tipoEscritura;
+    }
+
+    public int getTamaño() {
+        return tamaño;
+    }
+}
+
+package computadora;
+
+public class Pantalla {
+    public void encender() {
+        System.out.println("Pantalla encendida.");
+    }
+}
+
+package computadora;
+
+public class Pc {
+    private Teclado teclado;
+    private Pantalla pantalla;
+
+    // Constructor
+    public Pc(Teclado teclado, Pantalla pantalla) {
+        if (teclado == null || pantalla == null) {
+            System.out.println("Se necesita un teclado y una pantalla para armar la computadora.");
+            return;
+        }
+        this.teclado = teclado;
+        this.pantalla = pantalla;
+    }
+
+    // Método para encender la PC
+    public void encender(String teclaPresionada) {
+        teclado.escribir("Presionando la tecla: " + teclaPresionada);
+
+        if (teclaPresionada.equalsIgnoreCase("F1")) {
+            pantalla.encender();
+        } else {
+            System.out.println("Pantalla no se encendió. Usa la tecla F1.");
+        }
+    }
+}
+
