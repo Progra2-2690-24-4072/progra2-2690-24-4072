@@ -1,3 +1,112 @@
+package ejemplo;
+public class Circulo extends Figura {
+    private double radio;
+    
+    public Circulo (double radio)
+    {
+        this.radio = radio;
+        
+    }
+    public static double pi = 3.1416;
+    
+
+    public double getRadio() {
+        return radio;
+    }
+
+    public void setRadio(double radio) {
+        this.radio = radio;
+    }
+    
+    public double area (){
+        return pi * (radio * radio);
+    }
+    
+}
+
+package ejemplo;
+
+public class Ejemplo {
+
+    public static void main(String[] args) {
+        System.out.println(Circulo.pi);
+        Circulo c1 = new Circulo (32);
+        System.out.println(c1.area());
+        c1.setX(10);
+        c1.setY(2);
+        
+    }
+}
+
+package ejemplo;
+public class Figura {
+    
+    private int x, y;
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+    
+    
+    
+}
+
+package ejemplo.pkg2;
+
+public class Ejemplo2 {
+    public static void main(String[] args) {
+        Transaccion t1 = new Transaccion(100.0);
+        t1.procesarPago();
+
+        PagoTarjeta t2 = new PagoTarjeta(250.0, "1234-5678-9012-3456");
+        t2.procesarPago();
+    }
+}
+package ejemplo.pkg2;
+
+public class PagoTarjeta extends Transaccion {
+    private String numeroTarjeta;
+
+    public PagoTarjeta(double monto, String numeroTarjeta) {
+        super(monto);
+        this.numeroTarjeta = numeroTarjeta;
+    }
+
+    @Override
+    public void procesarPago() {
+        System.out.println("Procesando pago de Q" + monto + " con tarjeta: " + numeroTarjeta);
+    }
+}
+
+package ejemplo.pkg2;
+
+public class Transaccion {
+    protected double monto;
+
+    public Transaccion(double monto) {
+        this.monto = monto;
+    }
+
+    public void procesarPago() {
+        System.out.println("Procesando pago de: Q" + monto);
+    }
+}
+
+
+
+
 package computadora;
 
 public class Computadora {
