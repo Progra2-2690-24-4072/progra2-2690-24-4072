@@ -1,13 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package ejemplo;
-
-/**
- *
- * @author crist
- */
 public class Figura {
     
     private int x, y;
@@ -31,3 +22,4 @@ public class Figura {
     
     
 }
+
